@@ -10,6 +10,7 @@ function App() {
   return (
     <>
       <h2>Redux {count}</h2>
+      <button onClick={()=>setCount(count + 1)}>Click me</button>
     </>
   )
 }
