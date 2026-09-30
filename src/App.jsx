@@ -1,18 +1,38 @@
-import { useState } from 'react'
-// import heroImg from './assets/hero.png'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from './assets/vite.svg'
-// import './App.css'
+import Header from "./components/Header";
+import Product from "./components/Product";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const products = [
+    {
+      id: 1,
+      name: "Laptop",
+      price: 50000,
+    },
+    {
+      id: 2,
+      name: "Mobile",
+      price: 20000,
+    },
+    {
+      id: 3,
+      name: "Keyboard",
+      price: 1500,
+    },
+  ];
 
   return (
     <>
-      <h2>Redux {count}</h2>
-      <button onClick={()=>setCount(count + 1)}>Click me</button>
+      <Header cartCount={0} />
+      <div className="container">
+        <h1>Products</h1>
+        <div className="row">
+          {products.map((product,index) => (
+            <div key={index} className="col-md-4 col-6 mb-2">
+              <Product product={product} />
+            </div>
+          ))}
+        </div>
+      </div>
     </>
-  )
+  );
 }
-
-export default App
